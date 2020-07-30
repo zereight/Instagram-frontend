@@ -5,4 +5,7 @@ export default createGlobalStyle`
     * {
         box-sizing: border-box;
     }
+    input:focus{
+        outline: none;
+    }
 `;
