@@ -2,25 +2,27 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
 import React from "react";
 import Feed from "../Routes/Feed";
+import Auth from "../Routes/Auth";
 
-const LoggedInRoutes = () => {
+const LoggedInRoutes = () => (
   <>
     <Route exact path="/" component={Feed}></Route>
-  </>;
-};
+  </>
+);
 
-const LoggedOutRouters = () => {
+const LoggedOutRouters = () => (
   <>
     <Route exact path="/" component={Auth}></Route>
-  </>;
-};
+  </>
+);
 
 const AppRouter = ({ isLoggedIn }) => {
-  <Router>
-    <Switch>
-      (isLoggendIn ? <LoggedInRoutes /> : <LoggedOutRouters />)
-    </Switch>
-  </Router>;
+  console.log(isLoggedIn);
+  return (
+    <Router>
+      <Switch>{isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRouters />}</Switch>
+    </Router>
+  );
 };
 
 AppRouter.prototype = {
