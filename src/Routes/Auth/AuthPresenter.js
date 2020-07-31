@@ -47,17 +47,17 @@ const Form = styled(Box)`
 `;
 
 export default (props) => {
-  const { action, username, firstName, email, setAction, onLogin } = props;
+  const { action, username, firstName, email, setAction, onSubmit } = props;
 
   return (
     <Wrapper>
       <Form>
         {action === "logIn" ? (
-          <form onSubmit={onLogin}>
+          <form onSubmit={onSubmit}>
             <Input placeholder={"Email"} {...email} type="email"></Input>
           </form>
         ) : (
-          <form onSubmit={onLogin}>
+          <form onSubmit={onSubmit}>
             <Input placeholder={"First name"} {...firstName}></Input>
             <Input placeholder={"Last name"} {...lastName}></Input>
             <Input placeholder={"Email"} {...email}></Input>
