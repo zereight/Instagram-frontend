@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import { ThemeProvider } from "styled-components";
+import Theme from "../Styles/Theme";
+import GlobalStyles from "../Styles/GlobalStyles";
 
 class App extends Component {
   render() {
-    return <div className="App"></div>;
+    return (
+      <ThemeProvider theme={Theme}>
+        <GlobalStyles />
+      </ThemeProvider>
+    );
   }
 }
 
