@@ -1,19 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
 import { ThemeProvider } from "styled-components";
 import Theme from "../Styles/Theme";
 import GlobalStyles from "../Styles/GlobalStyles";
 import Router from "./Router";
-class App extends Component {
-  render() {
-    return (
-      <ThemeProvider theme={Theme}>
-        <>
-          <GlobalStyles />
-          <Router isLoggedIn={false} />
-        </>
-      </ThemeProvider>
-    );
-  }
-}
+import { gql } from "apollo-boost";
+import { useQuery } from "react-apollo-hooks";
 
-export default App;
+const QUERY = gql`
+  {
+    isLoggedIn @client
+  }
+`;
+
+export default () => {
+  const {
+    data: { isLoggedIn },
+  } = useQuery(QUERY);
+
+  return (
+    <ThemeProvider theme={Theme}>
+      <>
+        <GlobalStyles />
+        <Router isLoggedIn={isLoggedIn} />
+      </>
+    </ThemeProvider>
+  );
+};
