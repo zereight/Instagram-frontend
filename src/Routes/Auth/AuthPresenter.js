@@ -54,18 +54,20 @@ export default ({
   email,
   setAction,
   onSubmit,
+  secret,
 }) => {
   //   console.log(action);
   return (
     <Wrapper>
       <Form>
-        {action === "logIn" ? (
+        {action === "logIn" && (
           <form onSubmit={onSubmit}>
             <Input placeholder={"Email"} {...email} type="email" />
 
             <Button text={"Log In"} />
           </form>
-        ) : (
+        )}
+        {action === "signUp" && (
           <form onSubmit={onSubmit}>
             <Input placeholder={"FirstName"} {...firstName} />
             <Input placeholder={"LastName"} {...lastName} />
@@ -73,6 +75,12 @@ export default ({
             <Input placeholder={"Username"} {...username} />
 
             <Button text={"Sign Up"} />
+          </form>
+        )}
+        {action === "confirm" && (
+          <form onSubmit={onSubmit}>
+            <Input placeholder="Paste your secert" required {...secret} />
+            <Button text={"Confirm"} />
           </form>
         )}
       </Form>
