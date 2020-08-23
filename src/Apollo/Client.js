@@ -15,6 +15,9 @@ export default new ApolloClient({
     defaults: defaults,
     resolvers: resolvers,
   },
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`,
+  },
   //   typeDefs: typeDefs,
   //   cache: new InMemoryCache(),
 });

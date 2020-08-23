@@ -13,4 +13,5 @@ export default {
         border-radius: 4px;
         background-color: white;
     `,
+  maxWidth: "935px",
 };
