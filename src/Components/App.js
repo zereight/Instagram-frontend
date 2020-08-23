@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import Theme from "../Styles/Theme";
 import Router from "./Router";
 import { useQuery } from "react-apollo-hooks";
+import Footer from "./Footer";
 
 const QUERY = gql`
   {
@@ -20,6 +21,7 @@ export default () => {
     <ThemeProvider theme={Theme}>
       <GlobalStyles />
       <Router isLoggedIn={isLoggedIn}></Router>
+      <Footer />
     </ThemeProvider>
   );
 };
