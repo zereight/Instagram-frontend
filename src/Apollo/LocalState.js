@@ -2,6 +2,13 @@ export const defaults = {
   isLoggedIn: localStorage.getItem("token") !== null ? true : false,
 };
 
+export const typeDefs = `
+    type Mutation {
+        logUser(token: String!):Boolean 
+        logUserOut:Boolean
+    }
+`;
+
 export const resolvers = {
   Mutation: {
     logUserIn: (_, { token }, { cache }) => {

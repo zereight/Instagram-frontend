@@ -1,5 +1,13 @@
 import ApolloClient from "apollo-boost";
-import { defaults, resolvers } from "./LocalState";
+// import ApolloClient from "@apollo/react-hooks";
+// import ApolloClient from "apollo-client";
+// import { InMemoryCache } from "apollo-cache-inmemory";
+// import { createHttpLink } from "apollo-link-http";
+import {
+  defaults,
+  resolvers,
+  // typeDefs
+} from "./LocalState";
 
 export default new ApolloClient({
   uri: "http://localhost:4000/",
@@ -7,4 +15,6 @@ export default new ApolloClient({
     defaults: defaults,
     resolvers: resolvers,
   },
+  //   typeDefs: typeDefs,
+  //   cache: new InMemoryCache(),
 });
