@@ -10,6 +10,7 @@ const Post = styled.div`
   width: 100%;
   max-width: 600px;
   margin-bottom: 25px;
+  user-select: none;
 `;
 
 const Header = styled.header`
@@ -31,7 +32,7 @@ const Location = styled.span`
 `;
 
 const Files = styled.div`
-  position: relative;
+  /* position: relative; */
   padding-bottom: 100%;
   display: flex;
   flex-direction: column;
@@ -99,6 +100,7 @@ export default ({
   createdAt,
   newComment,
   currentItem,
+  toggleLike,
 }) => {
   return (
     <Post>
@@ -121,7 +123,9 @@ export default ({
       </Files>
       <Meta>
         <Buttons>
-          <Button>{isLiked ? <HeartFull /> : <HeartEmpty />}</Button>
+          <Button onClick={toggleLike}>
+            {isLiked ? <HeartFull /> : <HeartEmpty />}
+          </Button>
           <Button>
             <Comment />
           </Button>
