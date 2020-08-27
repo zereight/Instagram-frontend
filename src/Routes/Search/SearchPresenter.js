@@ -39,6 +39,7 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
             <FatText text="No Users Found" />
           ) : (
             data.searchUser.map((user) => {
+              //   console.log(user);
               return (
                 <UserCard
                   key={user.id}
@@ -46,6 +47,7 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
                   isFollowing={user.isFollowing}
                   url={user.avatar}
                   isSelf={user.isSelf}
+                  id={user.id}
                 />
               );
             })

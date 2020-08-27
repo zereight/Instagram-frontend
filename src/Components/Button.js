@@ -15,8 +15,8 @@ const Container = styled.button`
   cursor: pointer;
 `;
 
-const Button = ({ text }) => {
-  return <Container>{text}</Container>;
+const Button = ({ text, onClick }) => {
+  return <Container onClick={onClick}>{text}</Container>;
 };
 
 Button.propTypes = {
