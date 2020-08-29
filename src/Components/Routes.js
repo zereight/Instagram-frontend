@@ -1,6 +1,6 @@
 import React from "react";
 // import { HashRouter, Route, Switch } from "react-router-dom";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import Feed from "../Routes/Feed";
 import Auth from "../Routes/Auth/index";
@@ -15,6 +15,7 @@ const LoggedInRoutes = () => {
       <Route exact path="/explore" component={Explore}></Route>
       <Route exact path="/search" component={Search}></Route>
       <Route exact path="/:username" component={Profile}></Route>
+      <Redirect from="*" to="/" />
     </Switch>
   );
 };
@@ -23,6 +24,7 @@ const LoggedOutRoutes = () => {
   return (
     <Switch>
       <Route exact path="/" component={Auth}></Route>
+      <Redirect from="*" to="/" />
     </Switch>
   );
 };

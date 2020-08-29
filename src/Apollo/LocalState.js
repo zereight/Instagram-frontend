@@ -22,7 +22,7 @@ export const resolvers = {
     },
     logUserOut: (_, __) => {
       localStorage.removeItem("token");
-      window.locataion.reload();
+      window.locataion = "/";
       return null;
     },
   },
