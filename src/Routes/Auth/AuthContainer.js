@@ -133,7 +133,7 @@ export default () => {
             position: "bottom-left",
             autoClose: 3000,
           });
-          window.location = "/";
+          //   window.location = "/";
         }
       } catch (error) {
         toast.error(error.message, {

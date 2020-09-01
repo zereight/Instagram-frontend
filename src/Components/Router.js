@@ -5,19 +5,23 @@ import Auth from "../Routes/Auth/AuthContainer";
 import Feed from "../Routes/Feed";
 
 const LoggedInRoutes = () => {
-  return <Route exact path="/" component={Auth} />;
+  return (
+    <Switch>
+      <Route exact path="/" component={Auth} />
+    </Switch>
+  );
 };
 
 const LoggedOutRoutes = () => {
-  return <Route exact path="/" component={Feed} />;
+  return (
+    <Switch>
+      <Route exact path="/" component={Feed} />
+    </Switch>
+  );
 };
 
 const AppRouter = ({ isLoggedIn }) => {
-  return (
-    <HashRouter>
-      <Switch>{!isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />}</Switch>
-    </HashRouter>
-  );
+  return !isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />;
 };
 
 AppRouter.propTypes = {

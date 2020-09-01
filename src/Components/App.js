@@ -8,6 +8,8 @@ import { useQuery } from "react-apollo-hooks";
 import Footer from "./Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "./Header";
+import { HashRouter } from "react-router-dom";
 
 const QUERY = gql`
   {
@@ -28,11 +30,14 @@ function App() {
 
   return (
     <ThemeProvider theme={Theme}>
-      <Wrapper>
-        <GlobalStyles />
-        <AppRouter isLoggedIn={isLoggedIn} />
-        <Footer />
-      </Wrapper>
+      <GlobalStyles />
+      <HashRouter>
+        <Header />
+        <Wrapper>
+          <AppRouter isLoggedIn={isLoggedIn} />
+          <Footer />
+        </Wrapper>
+      </HashRouter>
       <ToastContainer />
     </ThemeProvider>
   );
