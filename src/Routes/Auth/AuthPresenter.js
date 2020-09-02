@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../../Components/Button";
 import Input from "../../Components/Input";
+import Helmet from "react-helmet";
 
 const Wrapper = styled.div`
   min-height: 80vh;
@@ -57,25 +58,44 @@ export default ({
     <Wrapper>
       <Form>
         {action === "logIn" && (
-          <form onSubmit={onSubmit}>
-            <Input type="email" {...email} placeholder="Email" />
-            <Button text="Log In" />
-          </form>
+          <>
+            <Helmet>
+              <title>Log In | Instagram</title>
+            </Helmet>
+            <form onSubmit={onSubmit}>
+              <Input type="email" {...email} placeholder="Email" />
+              <Button text="Log In" />
+            </form>
+          </>
         )}
         {action === "signUp" && (
-          <form onSubmit={onSubmit}>
-            <Input {...username} type="text" placeholder="Username" />
-            <Input {...email} type="email" placeholder="email" />
-            <Input {...firstName} type="text" placeholder="firstName" />
-            <Input {...lastName} type="text" placeholder="lastName" />
-            <Button text="Sign Up" />
-          </form>
+          <>
+            <Helmet>
+              <title>Sign In | Instagram</title>
+            </Helmet>
+            <form onSubmit={onSubmit}>
+              <Input {...username} type="text" placeholder="Username" />
+              <Input {...email} type="email" placeholder="email" />
+              <Input {...firstName} type="text" placeholder="firstName" />
+              <Input {...lastName} type="text" placeholder="lastName" />
+              <Button text="Sign Up" />
+            </form>
+          </>
         )}
         {action === "confirm" && (
-          <form onSubmit={onSubmit}>
-            <Input placeholder="Paste your secret code." required {...secret} />
-            <Button text="Confirm" />
-          </form>
+          <>
+            <Helmet>
+              <title>Confirm | Instagram</title>
+            </Helmet>
+            <form onSubmit={onSubmit}>
+              <Input
+                placeholder="Paste your secret code."
+                required
+                {...secret}
+              />
+              <Button text="Confirm" />
+            </form>
+          </>
         )}
       </Form>
       <StateChanger>
